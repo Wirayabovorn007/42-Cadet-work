@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiboonpr <wiboonpr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wiraya <wiraya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 14:56:20 by wiboonpr          #+#    #+#             */
-/*   Updated: 2025/12/19 14:57:01 by wiboonpr         ###   ########.fr       */
+/*   Updated: 2025/12/19 17:29:49 by wiraya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,33 @@ void	set_target_b(t_stack *a, t_stack *b)
 			b->target = target;
 		b = b->next;
 	}
+}
+
+void	set_is_cheapest(t_stack	*stack)
+{
+	long	cheapest_val;
+	t_stack	*cheapest_node;
+	t_stack	*curr;
+
+	if (!stack)
+		return ;
+	curr = stack;
+	while (curr)
+	{
+		curr->is_cheapest = 0;
+		curr = curr->next;
+	}
+	cheapest_node = NULL;
+	cheapest_val = LONG_MAX;
+	while (stack)
+	{
+		if (stack->push_cost < cheapest_val)
+		{
+			cheapest_val = stack->push_cost;
+			cheapest_node = stack;
+		}
+		stack = stack->next;
+	}
+	if (cheapest_node)
+		cheapest_node->is_cheapest = 1;
 }

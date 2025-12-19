@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiboonpr <wiboonpr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wiraya <wiraya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 14:38:47 by wiboonpr          #+#    #+#             */
-/*   Updated: 2025/12/19 16:54:07 by wiboonpr         ###   ########.fr       */
+/*   Updated: 2025/12/19 17:29:22 by wiraya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	free_stack(t_stack **a);
 void	set_target_a(t_stack *a, t_stack *b);
 void	set_target_b(t_stack *a, t_stack *b);
 t_stack	*get_cheapest(t_stack *stack);
+void	set_is_cheapest(t_stack	*stack);
 
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
