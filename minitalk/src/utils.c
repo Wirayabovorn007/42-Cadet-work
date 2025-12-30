@@ -26,17 +26,34 @@ int	ft_atoi(char *str)
 	return (res * sign);
 }
 
-void	send_char_as_bit(int server_pid, char c)
+void	send_bit(int server_pid, char c)
 {
 	int	i;
 
-	i = 8;
-	while (i-- >= 0)
+	i = 7;
+	while (i >= 0)
 	{
-		if ((c >> i) & i)
-			kill(server_pid, SIGUSR2);
-		else
+		if ((c >> i) & 1)
 			kill(server_pid, SIGUSR1);
+		else
+			kill(server_pid, SIGUSR2);
 		usleep(100);
+		i--;
+	}
+}
+
+void	bit_to_str(int signal)
+{
+	static int	bit;
+	static	char	c;
+
+	if (signal == SIGUSR1)
+		c |= (0x01 << bit);
+	bit++;
+	if (bit == 8)
+	{
+		ft_printf("%c", c);
+		bit = 0;
+		c = 0;
 	}
 }
