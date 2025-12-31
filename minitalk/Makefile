@@ -50,7 +50,7 @@ clean:
 	@make clean -C $(PRINTF_DIR)
 
 fclean: clean
-	$(RM) $(CLIENT) $(SERVER) $(CLIENT_BONUS) $(SERVER_BONUS) 
+	$(RM) $(CLIENT) $(SERVER) $(CLIENT_BONUS) $(SERVER_BONUS)
 	@make fclean -C $(PRINTF_DIR)
 
 re: fclean all
