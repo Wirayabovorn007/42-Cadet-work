@@ -1,5 +1,5 @@
 
-#include "../include/minitalk.h"
+#include "../include/minitalk_bonus.h"
 
 int	main(int argc, char *argv[])
 {
