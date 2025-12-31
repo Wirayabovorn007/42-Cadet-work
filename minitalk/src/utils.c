@@ -30,15 +30,15 @@ void	send_bit(int server_pid, char c)
 {
 	int	i;
 
-	i = 7;
-	while (i >= 0)
+	i = 0;
+	while (i < 8)
 	{
 		if ((c >> i) & 1)
-			kill(server_pid, SIGUSR1);
+			kill(server_pid, SIGUSR1); //1
 		else
-			kill(server_pid, SIGUSR2);
-		usleep(100);
-		i--;
+			kill(server_pid, SIGUSR2); //0
+		usleep(500);
+		i++;
 	}
 }
 
