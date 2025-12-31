@@ -25,6 +25,5 @@ int	main(int argc, char *argv[])
 		send_bit(server_pid, str[i]);
 		i++;
 	}
-	ft_printf("\n");
 	return (0);
 }
