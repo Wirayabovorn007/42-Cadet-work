@@ -8,5 +8,6 @@
 int	ft_atoi(char *str);
 void	send_bit(int server_pid, char c);
 void	bit_to_str(int signal);
+int	all_num(char *str);
 
 #endif

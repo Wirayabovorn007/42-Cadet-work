@@ -57,3 +57,14 @@ void	bit_to_str(int signal)
 		c = 0;
 	}
 }
+
+int	all_num(char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (-1);
+	return (1);
+}

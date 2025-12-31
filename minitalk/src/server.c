@@ -6,7 +6,7 @@ int	main(int argc, char *argv[])
 	int	pid;
 	struct sigaction sa;
 
-	if (argc != 1)
+	if (argc != 1 || !argv[0])
 		return (1);
 	pid = getpid();
 	ft_printf("Server PID: %d\n", pid);
