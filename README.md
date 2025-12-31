@@ -25,6 +25,7 @@ All C projects in this repository are written in accordance with the **42 Norm**
 | Project | Description |
 | :--- | :--- |
 | **[push_swap](./push_swap)** | An algorithmic project where I sort data on a stack using a limited set of instructions and the lowest possible number of actions. Implements a **Greedy/Turk Algorithm** for efficiency. |
+| **[minitalk](./minitalk)** | Create a communication program in the form of a client and a server. The catch? The only method of communication allowed is **UNIX signals**. |
 
 ### Extras
 | Folder | Description |
