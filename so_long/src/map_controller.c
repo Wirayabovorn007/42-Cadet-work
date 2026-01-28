@@ -143,7 +143,9 @@ char	**read_map(char *path, int argc)
 	}
 	line_arr[i] = NULL;
 	close(fd);
-	return (validate_map(line_arr, line_count));
+	if (!validate_map(line_arr, line_count))
+		free_arr(line_arr);
+	return (line_arr);
 }
 
 int	is_validpath(char *path)
