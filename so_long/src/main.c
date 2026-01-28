@@ -3,7 +3,14 @@
 
 int	main(void)
 {
-	int	status;
+	char	**map;
 
-	status = read_map("../maps/map.ber");
+	map = read_map("../maps/map.ber");
+	if (!map)
+	{
+		free_arr(map);
+		return EXIT_FAILURE;
+	}
+
+	free_arr(map);
 }

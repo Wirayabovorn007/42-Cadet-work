@@ -11,15 +11,16 @@ int len(char *str)
 	return (i);
 }
 
-int	print_error(char *type)
+#include <stdio.h> //for testing
+void	free_arr(char **arr)
 {
-	write(2,"Error\n", 6);
-	if (type)
-	{
-		write(1, "Type: ", 2);
-		write(2, type, len(type));
-	}
-	write(2, "\n", 1);
-	return EXIT_FAILURE;
-}
+	int	i;
 
+	i = -1;
+	while (arr[++i])
+	{
+		// printf("%s\n", arr[i]);
+		free(arr[i]);
+	}
+	free(arr);
+}
