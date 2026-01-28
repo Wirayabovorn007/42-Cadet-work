@@ -6,11 +6,11 @@
 /*   By: wiraya <wiraya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:17:07 by wiboonpr          #+#    #+#             */
-/*   Updated: 2026/01/28 10:37:39 by wiraya           ###   ########.fr       */
+/*   Updated: 2026/01/28 10:51:14 by wiraya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
 static char	*read_until_nl(int fd, char *stash)
 {
@@ -103,22 +103,3 @@ char	*get_next_line(int fd)
 	stash = update_stash(stash);
 	return (line);
 }
-
-// #include <fcntl.h> //open()
-// #include <stdio.h> //printf()
-// #include "get_next_line.h"
-// int main(void)
-// {
-// 	int		fd;
-// 	char	*line;
-// 	fd = open("test.txt", O_RDONLY); // open a test file
-// 	if (fd < 0)
-// 		return (1);
-// 	while ((line = get_next_line(fd)) != NULL)
-// 	{
-// 		printf("%s", line); //print each line
-// 		free(line);
-// 	}
-// 	close(fd);
-// 	return (0);
-// }

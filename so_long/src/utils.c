@@ -23,7 +23,3 @@ int	print_error(char *type)
 	return EXIT_FAILURE;
 }
 
-char *ft_strjoin(char *src, char *to_join)
-{
-	
-}

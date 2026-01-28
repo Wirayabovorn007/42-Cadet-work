@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include "./get_next_line.h"
 
 int	read_map(char *path);
 int	print_error(char *type);
