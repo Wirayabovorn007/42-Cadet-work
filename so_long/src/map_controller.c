@@ -145,3 +145,10 @@ char	**read_map(char *path, int argc)
 	close(fd);
 	return (validate_map(line_arr, line_count));
 }
+
+int	is_validpath(char *path)
+{
+	if (strlcmp(path, "./maps/", len("./maps/")) != 0)
+		return (-1);
+	return (1);
+}
