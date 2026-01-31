@@ -5,12 +5,6 @@
 
 #define BUFFER_SIZE 1024
 #define IMG_PX 64
-#define IMG_WALL "/assets/wall.xpm"
-#define IMG_EXIT "/assets/exit.xpm"
-#define IMG_COIN "/assets/collectible.xpm"
-#define IMG_PLAYER "/assets/player.xpm"
-#define IMG_MAP "/assets/map_bg.xpm"
-#define IMG_START "/assets/start.xpm"
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -31,6 +25,12 @@ typedef struct s_game
 	int		map_h;
 	int		map_w;
 	void	*img_player;
+	void *wall_img;
+	void *floor_img;
+	void *coin_img;
+	void *exit_img;
+	void *player_img;
+	char	**map;
 } s_game;
 
 
