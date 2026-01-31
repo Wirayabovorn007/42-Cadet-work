@@ -10,19 +10,19 @@ int	get_map_height(char **map)
 	return (i);
 }
 
-void	render_map(char **map, s_game *game)
+void	render_map(s_game *game)
 {
 	int	row;
 	int	col;
 	char	curr_pos;
 
 	row = -1;
-	while (map[++row])
+	while (game->map[++row])
 	{
 		col = -1;
-		while (map[row][++col])
+		while (game->map[row][++col])
 		{
-			curr_pos = map[row][col];
+			curr_pos = game->map[row][col];
 			if (curr_pos == '1')
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall_img, col * IMG_PX, row * IMG_PX);
 			if (curr_pos == '0')
@@ -65,7 +65,7 @@ void	init_game(char **map)
 	game.exit_img = mlx_xpm_file_to_image(game.mlx_ptr, "assets/exit.xpm", &w, &h);
 	if (!game.wall_img || !game.floor_img || !game.coin_img || !game.player_img || !game.exit_img)
 		return (err_free(game.map));
-	render_map(game.map, &game);
+	render_map(&game);
 	mlx_loop(game.mlx_ptr);
 	free_arr(game.map);
 }
