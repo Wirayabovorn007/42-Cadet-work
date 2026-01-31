@@ -1,6 +1,12 @@
 
 #include "../include/so_long.h"
 
+
+void	move_player(char di)
+{
+	
+}
+
 void	key_press(int keycode, s_game *game)
 {
 	if (keycode == KEY_ESC);
