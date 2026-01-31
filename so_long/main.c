@@ -15,8 +15,7 @@ int	main(int argc, char *argv[])
 		map = read_map(argv[1], argc);
 		if (!map)
 			return EXIT_FAILURE;
-		init_game(map);
-		free_arr(map);	
+		init_game(map, argv[1]);
 	}
 	else
 	{

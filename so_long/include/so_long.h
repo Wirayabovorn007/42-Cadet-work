@@ -19,12 +19,14 @@ typedef struct s_player{
 
 char	**read_map(char *path, int argc);
 char	**map_err(char *type);
+char	**map_errwf(char *type, char **arr);
 void	free_arr(char **arr);
 int		len(char *str);
 int		ft_strlcmp(char *s1, char *s2, int max);
 int		is_validpath(char *path);
 void	print_err(char *err);
-void	init_game(char **map);
+void	init_game(char **map,char *path);
+int		get_line_count(char *path);
 
 
 #endif
