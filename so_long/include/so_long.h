@@ -20,6 +20,7 @@ typedef struct s_player{
 
 typedef struct s_game
 {
+	s_player	player;
 	void	*mlx_ptr;
 	void	*win_ptr;
 	int		map_h;
@@ -44,6 +45,7 @@ int		is_validpath(char *path);
 void	print_err(char *err);
 void	init_game(char **map);
 int		get_line_count(char *path);
+void	game_control(s_game *game);
 
 
 #endif

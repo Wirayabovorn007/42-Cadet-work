@@ -66,6 +66,7 @@ void	init_game(char **map)
 	if (!game.wall_img || !game.floor_img || !game.coin_img || !game.player_img || !game.exit_img)
 		return (err_free(game.map));
 	render_map(&game);
+	game_control(&game);
 	mlx_loop(game.mlx_ptr);
 	free_arr(game.map);
 }
