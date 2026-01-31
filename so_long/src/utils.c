@@ -49,3 +49,4 @@ void	print_err(char *err)
 	}
 	write(2, "\n", 1);
 }
+
