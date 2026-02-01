@@ -1,56 +1,39 @@
-NAME        = so_long
-CC          = cc
-CFLAGS      = -Wall -Wextra -Werror
+NAME		= so_long
+CC			= cc
+CFLAGS		= 
+# -Wall -Wextra -Werror
+MLX_PATH	= minilibx-linux
+MLX_LIB		= $(MLX_PATH)/libmlx_Linux.a
+MLX_FLAGS	= -L$(MLX_PATH) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
 
-SRC_DIR     = src/
-GNL_DIR     = src/get_next_line/
-FTPINTF_DIR = src/ft_printf/
-INC_DIR     = include/
-MLX_DIR     = minilibx-linux/
+SRCS		= main.c \
+			  src/game_init.c \
+			  src/start_game.c \
+			  src/map_init.c \
+			  src/utils.c \
+			  src/get_next_line/get_next_line.c \
+			  src/get_next_line/get_next_line_utils.c \
+			  src/ft_printf/ft_printf.c \
+			  src/ft_printf/cs_handler.c \
+			  src/ft_printf/idu_handler.c \
+			  src/ft_printf/u_handler.c \
+			  src/ft_printf/all_x_handler.c
 
-FTPRINTF_LIB = $(FTPINTF_DIR)libftprintf.a
-MLX_LIB     = $(MLX_DIR)libmlx.a
-
-MLX_FLAGS   = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
-INCLUDES    = -I$(INC_DIR) -I$(MLX_DIR)
-
-
-SRC_FILES   = map_init.c utils.c game_init.c
-GNL_FILES   = get_next_line.c get_next_line_utils.c
-
-MAIN_FILE   = main.c
-
-
-SRCS        = $(addprefix $(SRC_DIR), $(SRC_FILES)) \
-              $(addprefix $(GNL_DIR), $(GNL_FILES)) \
-              $(MAIN_FILE)
-
-
-OBJS        = $(SRCS:.c=.o)
-
+OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(MLX_LIB):
-	@make -C $(MLX_DIR)
+	make -C $(MLX_PATH)
 
-$(FTPRINTF_LIB):
-	@make $(FTPINTF_DIR)
-
-$(NAME): $(MLX_LIB) $(OBJS)
+$(NAME): $(OBJS) $(MLX_LIB)
 	$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME)
 
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 clean:
-	@make clean $(FTPINTF_DIR)
-	@make clean -C $(MLX_DIR)
 	rm -f $(OBJS)
+	make -C $(MLX_PATH) clean
 
 fclean: clean
-	@make fclean $(FTPINTF_DIR)
 	rm -f $(NAME)
 
 re: fclean all
