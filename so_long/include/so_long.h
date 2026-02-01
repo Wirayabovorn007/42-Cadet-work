@@ -9,12 +9,13 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include "../src/get_next_line/get_next_line.h"
+#include "../src/ft_printf/ft_printf.h"
 #include "../minilibx-linux/mlx.h"
 
 typedef struct s_player{
 	int	x;
 	int	y;
-	int	total_collect;
+	int	collect;
 } s_player;
 
 typedef struct s_game
@@ -24,6 +25,8 @@ typedef struct s_game
 	void	*win_ptr;
 	int		map_h;
 	int		map_w;
+	int		move_count;
+	int		total_colectible;
 	void	*img_player;
 	void *wall_img;
 	void *floor_img;
