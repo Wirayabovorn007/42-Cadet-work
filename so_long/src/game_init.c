@@ -10,14 +10,14 @@ int	get_map_height(char **map)
 	return (i);
 }
 
-void	set_player(s_game *game, int row, int col)
+void	set_player(t_game *game, int row, int col)
 {
 	game->player.x = col;
 	game->player.y = row;
 	game->player.collect = 0;
 }
 
-void	render_map(s_game *game)
+void	render_map(t_game *game)
 {
 	int	row;
 	int	col;
@@ -60,7 +60,7 @@ void	init_game(char **map)
 {
 	int	w;
 	int	h;
-	s_game	game;
+	t_game	game;
 
 	ft_memset(&game, 0, sizeof(game));
 	game.mlx_ptr = mlx_init();

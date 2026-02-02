@@ -1,7 +1,7 @@
 
 #include "../include/so_long.h"
 
-int	close_game(s_game *game)
+int	close_game(t_game *game)
 {
 	if (game->wall_img)
 		mlx_destroy_image(game->mlx_ptr, game->wall_img);
