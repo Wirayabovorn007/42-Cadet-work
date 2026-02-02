@@ -78,6 +78,7 @@ int	check_game(t_game *game)
 		ft_printf("Error\nInvalid xpm files.\n");
 		return (-1);
 	}
+	return (0);
 }
 
 void	init_game(char **map)

@@ -66,5 +66,12 @@ int		key_release(int keycode, t_game *game);
 char	**closefd_w_err(int fd, char *t);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strchr(const char *str, int searchc);
+void	move_player(char di, t_game *game);
+int		validmap_cond1(char *line);
+int		validmap_cond3(char **map);
+int		validmap_cond4(char *line);
+void	set_player(t_game *game, int row, int col);
+void	err_free(char **arr);
+int		get_map_height(char **map);
 
 #endif
