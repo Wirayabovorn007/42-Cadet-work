@@ -3,14 +3,15 @@
 # So_long
 
 ## Description
-**so_long** is a 
-
-This project ...
+**so_long** is a small 2D game developed in C using the MiniLibX (MLX) graphical library. The goal of the game is to control a character (the Player) who must collect all items (Coins) on the map and escape through the exit.
 
 ## Instructions
 
-## Install Minilibx
-You need to install it first before compilation.
+### Install Minilibx
+This project uses MiniLibX for Linux. Before compiling, you must ensure the necessary system dependencies are installed on your machine.
+```Bash
+sudo apt-get install gcc make xorg libxext-dev libbsd-dev
+```
 ### Compilation
 The project uses a `Makefile` for compilation. To compile the executable, run the following command at the root of the repository:
 
@@ -22,29 +23,40 @@ executables.
 
 Other available commands:
 ```bash
-make clean: Removes object files.
-```
-```bash
-make fclean: Removes object files and the executable.
-```
-```bash
-make re: Recompiles the project from scratch.
+make clean   # Removes object files (.o)
+make fclean  # Removes object files and the executable
+make re      # Recompiles the project from scratch
 ```
 ### Execution
-**Open the game**
+To play the game, run the executable and provide a valid .ber map file as an argument:
 ```Bash
-./so_long ./maps/<map_name.ber>
+./so_long ./maps/level1.ber
 ```
+### Game Controls
+- W or Arrow Up: Move Up
+- A or Arrow Left: Move Left
+- S or Arrow Down: Move Down
+- D or Arrow Right: Move Right
+- ESC or Click X: Close the game
+### Map Rules
+The map must be a .ber file containing the following characters:
+- 1: Wall
+- 0: Empty space
+- P: Player (Start position)
+- C: Collectible (Coin)
+- E: Exit
 
+The map must be rectangular, surrounded by walls, and contain a valid path to win.
 ## Resources
-
-### References
-- [Minitalk Tutorial](https://medium.com/@digitalpoolng/42-minitalk-building-a-simple-client-server-communication-program-in-c-a5e6d96c97ec)
-
-
+- [So_long Tutorial](https://medium.com/@digitalpoolng/42-so-long-and-thanks-for-all-the-fish-building-your-first-2d-game-in-c-ccd24034bc8b)
+- [Sample game](https://www.youtube.com/watch?v=tNngHctUoaY)
+- [Tutorial Github](https://github.com/mewmewdevart/so_long)
+- [MinilibX book](https://42-cursus.gitbook.io/guide/minilibx)
+- [MinilibX docs](https://harm-smits.github.io/42docs/libs/minilibx/events.html)
 
 ## AI Usage
 Artificial Intelligence was used in this project for the following tasks:
+- Code Review: Used to analyze memory leaks (Valgrind errors), fix logic in the flood_fill algorithm for path validation.
 
-- Code Review & Debugging:
+- Concept Explanation: Provided clarification on MiniLibX event hooks, window management (Expose events), and proper resource destruction order.
 

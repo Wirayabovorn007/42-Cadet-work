@@ -16,34 +16,28 @@ int	validmap_cond1(char *line)
 
 int	validmap_cond3(char **map)
 {
-	int	row;
-	int	col;
-	int	st;
-	int	ei;
-	int	collect;
+	int	i;
+	int	j;
+	int	cnt[3];
 
-	row = -1;
-	st = 0;
-	ei = 0;
-	collect = 0;
-	while (map[++row])
+	i = -1;
+	ft_bzero(cnt, sizeof(int) * 3);
+	while (map[++i])
 	{
-		col = -1;
-		while (map[row][++col])
+		j = -1;
+		while (map[i][++j])
 		{
-			if (map[row][col] == '0' || map[row][col] == '1')
-				continue ;
-			else if (map[row][col] == 'P')
-				st++;
-			else if (map[row][col] == 'E')
-				ei++;
-			else if (map[row][col] == 'C')
-				collect++;
-			else
+			if (!ft_strchr("01CEP", map[i][j]))
 				return (0);
+			if (map[i][j] == 'P')
+				cnt[0]++;
+			else if (map[i][j] == 'E')
+				cnt[1]++;
+			else if (map[i][j] == 'C')
+				cnt[2]++;
 		}
 	}
-	return ((st == 1) && (ei == 1) && (collect >= 1));
+	return (cnt[0] == 1 && cnt[1] == 1 && cnt[2] >= 1);
 }
 
 int	validmap_cond4(char *line)

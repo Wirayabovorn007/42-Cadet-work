@@ -1,7 +1,6 @@
-
 #include "../include/so_long.h"
 
-int len(char *str)
+int	len(char *str)
 {
 	int	i;
 
@@ -25,31 +24,6 @@ int	ft_strlcmp(char *s1, char *s2, int max)
 	return (0);
 }
 
-#include <stdio.h> //for testing
-void	free_arr(char **arr)
-{
-	int	i;
-
-	i = -1;
-	while (arr[++i])
-	{
-		// printf("%s\n", arr[i]);
-		free(arr[i]);
-	}
-	free(arr);
-}
-
-void	print_err(char *err)
-{
-	write(2,"Error\n", 6);
-	if (err)
-	{
-		write(2, "Type: ", 6);
-		write(2, err, len(err));
-	}
-	write(2, "\n", 1);
-}
-
 void	*ft_memset(void *str, int c, size_t n)
 {
 	size_t			i;
@@ -63,4 +37,13 @@ void	*ft_memset(void *str, int c, size_t n)
 		i++;
 	}
 	return (str);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)s;
+	while (n--)
+		*ptr++ = 0;
 }
